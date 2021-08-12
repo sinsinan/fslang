@@ -50,10 +50,10 @@ public class Value {
         this.env = env;
     }
 
-    public Value(Value left, Value right) {
+    public Value(Value hd, Value tl) {
         this.type = ValueType.List;
-        this.tl = left;
-        this.hd = right;
+        this.hd = hd;
+        this.tl = tl;
     }
 
     public ValueType getType() {
