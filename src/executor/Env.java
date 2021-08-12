@@ -1,7 +1,5 @@
 package executor;
 
-import value.Value;
-
 public class Env {
     private final String id;
     private Value v;

@@ -2,7 +2,6 @@ package executor;
 
 import ast.*;
 import lexer.Token;
-import value.*;
 
 public class Executor {
 

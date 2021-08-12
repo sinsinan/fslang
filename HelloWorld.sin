@@ -1,17 +1,32 @@
 let rec
- merge = lambda a. lambda b.
-   if hd a < hd b then (hd a)::(merge tl a b)
-   else if hd b < hd a then (hd b)::(merge a tl b)
-   else (hd a)::(merge tl a tl b),
+merge = lambda a. lambda b.
+  {assume a and b infinite and disjoint}
+  let a1=hd a, b1=hd b
+  in if a1 < b1 then a1::(merge (tl a) b)
+     else {a1 > b1}  b1::(merge a (tl b)),
 
- mul = lambda n. lambda l. (n* hd l)::(mul n tl l)
+mult = lambda a. lambda b. (a * hd b)::(mult a tl b),
+
+remove = lambda a. lambda b.
+  { a-b, treat lists as sets. PRE: a & b ascending }
+  if hd a < hd b then (hd a)::(remove tl a b)
+  else if hd a > hd b then  remove a tl b
+  else remove tl a tl b,
+
+from = lambda n. n::(from (n+1)),
+       { n::(n+1)::(n+2):: ... }
+
+products = lambda l.           { PRE: l ascending }
+  let rec p = (hd l * hd l) :: {   & elts coprime }
+              (merge (mult  hd l  (merge  tl l  p))
+                     (products  tl l))
+  in p
 
 in let rec
- hamm = 1 :: (merge (mul 2 hamm)
-             (merge (mul 3 hamm)
-                    (mul 5 hamm)))
+   composites = products primes,
+   primes = 2 :: (remove (from 3) composites)   { ! }
 
-in hamm
+in primes
 
-{\fB Hamming Numbers. \fP}
+{\fB Composites and Primes. \fP}
 
