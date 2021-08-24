@@ -1,8 +1,8 @@
 # FSlang
 
-## A simple lambda calculus interpretor
+## A simple lambda calculus interpreter
 
-FSlang is a lambda calculus interpretor written in java. It is a port of lazy lambda calulus interpretor written by L. Allison of Monash University. Full article about the interpretor is available at https://users.monash.edu.au/~lloyd/tildeFP/Lambda
+FSlang is a lambda calculus interpreter written in java. It is a port of lazy lambda calulus interpreter written by L. Allison of Monash University. Full article about the same is available at https://users.monash.edu.au/~lloyd/tildeFP/Lambda
 
 ## Examples
 **Function to add two numbers**
